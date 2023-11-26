@@ -12,12 +12,12 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int valid = 0, len = 0;
+	int len = 0;
+
+	if (format == NULL)
+		return (-1);
 
 	va_start(args, format);
-	valid = _validate_char(format);
-	if (valid == -1)
-		return (valid);
 
 	len = _print_format(format, args);
 	va_end(args);
