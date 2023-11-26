@@ -79,7 +79,7 @@ int _validate_char(char _type)
 
 int _print_specificiers(char format, va_list args)
 {
-	int i = 0; len = 0;
+	int i = 0; leng = 0;
 	spc _types[] = {
 		{"c", _print_char},
 		{"s", _print_string},
@@ -89,12 +89,12 @@ int _print_specificiers(char format, va_list args)
 	while (_types[i].specifier)
 	{
 		if (*_types[i].specifier == format)
-			len = _types[i].f(args);
+			leng = _types[i].f(args);
 
 		i++;
 	}
 
-	return (len);
+	return (leng);
 }
 
 /**
