@@ -35,7 +35,7 @@ int _print_format(const char *format, va_list args)
 			}
 			else
 			{
-				count += _print_specifiers(format[i], args);
+				count += _print_specificiers(format[i], args);
 			}
 		}
 		else
@@ -70,14 +70,14 @@ int _validate_char(char _type)
 }
 
 /**
- * _print_specifiers - prints valid specifiers
+ * _print_specificiers - prints valid specifiers
  * @format: The specifier to print
  * @args: a list of variadic arguments
  *
  * Return: the length
  */
 
-int _print_specifiers(char format, va_list args)
+int _print_specificiers(char format, va_list args)
 {
 	int i = 0; len = 0;
 	spc _types[] = {
