@@ -50,26 +50,6 @@ int _print_format(const char *format, va_list args)
 }
 
 /**
-  * _validate_char - validate the type
-  * @_type: character to be comparate
-  *
-  * Return: 1 if char is equal
-  */
-int _validate_char(char _type)
-{
-	char _types[] = {'c', 's', '%'};
-	int i = 0;
-
-	while (_types[i])
-	{
-		if (_types[i] == _type)
-			return (1);
-		i++;
-	}
-	return (0);
-}
-
-/**
  * _print_specificiers - prints valid specifiers
  * @format: The specifier to print
  * @args: a list of variadic arguments
@@ -121,4 +101,24 @@ int _print_invalid(char prev_format, char format, int count)
 	}
 
 	return (count);
+}
+
+/**
+  * _validate_char - validate the type
+  * @_type: character to be comparate
+  *
+  * Return: 1 if char is equal
+  */
+int _validate_char(char _type)
+{
+	char _types[] = {'c', 's', '%'};
+	int i = 0;
+
+	while (_types[i])
+	{
+		if (_types[i] == _type)
+			return (1);
+		i++;
+	}
+	return (0);
 }
