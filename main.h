@@ -22,5 +22,7 @@ int print_percentage(void);
 int _strlen(char *str);
 int _strlenc(const char *str);
 int _validate_char(const char *str_format);
+int _print_specifiers(char format, va_list args);
+int _print_invalid(char prev_format, char format, int count);
 
 #endif

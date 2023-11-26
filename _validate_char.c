@@ -68,3 +68,57 @@ int _validate_char(char _type)
 	}
 	return (0);
 }
+
+/**
+ * _print_specifiers - prints valid specifiers
+ * @format: The specifier to print
+ * @args: a list of variadic arguments
+ *
+ * Return: the length
+ */
+
+int _print_specifiers(char format, va_list args)
+{
+	int i = 0; len = 0;
+	spc _types[] = {
+		{"c", _print_char},
+		{"s", _print_string},
+		{NULL, NULL}
+	};
+
+	while (_types[i].specifier)
+	{
+		if (*_types[i].specifier == format)
+			len = _types[i].f(args);
+
+		i++;
+	}
+
+	return (len);
+}
+
+/**
+ * _print_invalid - prints invalid specifiers
+ * @prev_format: The previous specifier of actual specifier
+ * @format: The specifier to prints
+ * @count: The current count before prints invalid specifiers
+ *
+ * Return: The current count after prints invalidspecifiers
+ */
+
+int _print_invalid(char prev_format, char format, int count)
+{
+	count += _putchar('%');
+
+	if (prev_format == ' ')
+	{
+		count += _putchar(' ');
+		count += _putchar(format);
+	}
+	else
+	{
+		count += _putchar(format);
+	}
+
+	return (count);
+}
