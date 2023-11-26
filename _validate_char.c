@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 /**
- * _evaluate - evaluate if each character of the string format is correct
+ * _validate_char - evaluate if each character of the string format is correct
  * @str_format: character
  *
  */
@@ -15,7 +15,7 @@ void _validate_char(const char *str_format)
 	int i = 0, j = 0, flag_character = 0;
 
 	if ((str_format != NULL) && (str_format[i] == '\0'))
-		return;
+		return (-1);
 	while (str_format[i] != '\0')
 	{
 		if (str_format[i] == '%')
@@ -27,9 +27,10 @@ void _validate_char(const char *str_format)
 				j++;
 			}
 			if (flag_character == 0)
-				return;
+				return (-1);
 			flag_character = 0;
 		}
 		i++;
 	}
+	return (0);
 }
