@@ -64,6 +64,8 @@ int _print_specificiers(char format, va_list args)
 	spc _types[] = {
 		{"c", _print_char},
 		{"s", _print_string},
+		{"d", _print_decimal},
+		{"i", _print_decimal},
 		{NULL, NULL}
 	};
 
@@ -112,7 +114,7 @@ int _print_invalid(char prev_format, char format, int count)
   */
 int _validate_char(char _type)
 {
-	char _types[] = {'c', 's', '%'};
+	char _types[] = {'c', 's', '%', 'd', 'i'};
 	int i = 0;
 
 	while (_types[i])
