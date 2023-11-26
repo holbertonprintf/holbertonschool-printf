@@ -23,10 +23,10 @@ void _validate_char(const char *str_format)
 			while (array_type[j])
 			{
 				if (str_format[i + 1] == array_type[j])
-					flag_character == 1;
+					flag_character = 1;
 				j++;
 			}
-			if (flag_character = 0)
+			if (flag_character == 0)
 				return;
 			flag_character = 0;
 		}
