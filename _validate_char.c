@@ -35,7 +35,7 @@ int _print_format(const char *format, va_list args)
 			}
 			else
 			{
-				count += _print_specificiers(format[i], args);
+				count += _print_specifiers(format[i], args);
 			}
 		}
 		else
