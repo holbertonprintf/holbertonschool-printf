@@ -1,0 +1,49 @@
+.TH _PRINTF 3 "26 Nov 2023" "Version 1" "_PRINTF"
+
+.SH NAME
+.B _printf - prints formatted data.
+
+.SH SYNOPSIS
+.B #include "main.h"
+.B int _printf(const char *format, ...)
+
+
+.SH DESCRIPTION
+
+.B _printf
+- is a custom implementation of printf that prints formatted data
+
+.SH RETURN VALUE
+
+Return the number of characters that print.
+
+.SH SPECIFICIERS
+
+Prints Valid Specifiers which are characters put after a % sign.
+.TP
+.B c
+Prints a single character
+.TP
+.B s
+Prints a string, an array of characters
+.TP
+.B d
+Prints a decimal
+.TP
+.B i
+Prints a decimal
+
+.SH EXAMPLE
+Print name, last name and gpa of a person.
+#include "main.h"
+_printf("%s, %s, %d", name, last name, gpa);
+
+
+.SH SEE ALSO
+
+.SH BUGS
+No detected bugs.
+
+.SH AUTHOR
+
+Written by Victor Ramos Moreno and jose daniel puc poot
