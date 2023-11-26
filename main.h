@@ -20,6 +20,8 @@ int _print_string(va_list args);
 int _print_format(const char *format, va_list args);
 int _print_specificiers(char format, va_list args);
 int _print_invalid(char prev_format, char format, int count);
+int _print_decimal(va_list args);
+void _integer(int a);
 int _validate_char(char _type);
 
 #endif
