@@ -12,39 +12,15 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
-	spc _types[] = {
-		{"c", _print_char},
-		{"s", _print_string},
-		{NULL, NULL}
-	};
-	int i = 0, j = 0, count = 0, valid = 0;
+	int valid = 0, len = 0;
 
 	va_start(args, format);
 	valid = _validate_char(format);
 	if (valid == -1)
 		return (valid);
-	while (format && format[i])
-	{
-		if (format[i] != '%')
-		{
-			_putchar(format[i]);
-			count += 1;
-		}
-		else
-		{
-			i++;
-			while (_types[j].specifier)
-			{
-				if (*_types[j].specifier == format[i])
-				{
-					_types[j].f(args);
-					count += 1;
-				}
-				j++;
-			}
-			j = 0;
-		}
-		i++;
-	}
-	return (count);
+
+	len = _print_format(format, args);
+	va_end(args);
+	
+	return (len);
 }

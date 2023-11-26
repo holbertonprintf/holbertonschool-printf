@@ -3,33 +3,67 @@
 #include <stdlib.h>
 
 /**
- * _validate_char - evaluate if each character of the string format is correct
- * @str_format: character
- *
- */
-
-
-void _validate_char(const char *str_format)
+  * _print_format - Prints a format
+  * @format: The format to prints
+  * @args: A list of variadic arguments
+  *
+  * Return: The length of the format
+  */
+int _print_format(const char *format, va_list args)
 {
-	char array_type[2] = {'c', 's'};
-	int i = 0, j = 0, flag_character = 0;
+	int count = 0;
+	int i = 0;
 
-	if ((str_format != NULL) && (str_format[i] == '\0'))
-		return (-1);
-	while (str_format[i] != '\0')
+	while (format && format[i])
 	{
-		if (str_format[i] == '%')
+		if (format[i] == '%')
 		{
-			while (array_type[j])
-			{
-				if (str_format[i + 1] == array_type[j])
-					flag_character = 1;
-				j++;
-			}
-			if (flag_character == 0)
+			if (format[i + 1] == '\0')
 				return (-1);
-			flag_character = 0;
+
+			i++;
+
+			while (format[i] == ' ')
+				i++;
+
+			if (format[i] == '%')
+				count += _putchar(format[i]);
+
+			if (_validate_char(format[i]) == 0)
+			{
+				count = _print_invalid(format[i - 1], format[i], count);
+			}
+			else
+			{
+				count += _print_specificiers(format[i], args);
+			}
 		}
+		else
+		{
+			count += _putchar(format[i]);
+		}
+
+		i++;
+	}
+
+	return (count);
+}
+
+/**
+  * _validate_char - validate the type
+  * @_type: character to be comparate
+  *
+  * Return: 1 if char is equal
+  */
+int _validate_char(char _type)
+{
+	char _types[] = {'c', 's', '%'};
+	int i = 0;
+
+	while (_types[i])
+	{
+		if (_types[i] == _type)
+			return (1);
 		i++;
 	}
 	return (0);
