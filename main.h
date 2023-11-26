@@ -20,4 +20,6 @@ void _print_string(va_list args);
 char print_p(void)
 int _strlen(char *str);
 int _strlenc(const char *str);
+void _validate_char(const char *str_format);
+
 #endif
