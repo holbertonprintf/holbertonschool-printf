@@ -59,7 +59,8 @@ int _print_format(const char *format, va_list args)
 
 int _print_specificiers(char format, va_list args)
 {
-	int i = 0; leng = 0;
+	int i = 0;
+	int len = 0;
 	spc _types[] = {
 		{"c", _print_char},
 		{"s", _print_string},
@@ -69,12 +70,12 @@ int _print_specificiers(char format, va_list args)
 	while (_types[i].specifier)
 	{
 		if (*_types[i].specifier == format)
-			leng = _types[i].f(args);
+			len = _types[i].f(args);
 
 		i++;
 	}
 
-	return (leng);
+	return (len);
 }
 
 /**
